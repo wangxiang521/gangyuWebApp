@@ -1,0 +1,236 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { margin: 0; padding: 0; list-style: none; outline: none; word-wrap: break-word; border:none; }
+* {
+  box-sizing: border-box;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0 none;
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  
+  /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+  max-height: 100000px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+em, strong {
+  font-style: normal;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+html{
+    font-size:100px!important;
+}
+body {font-size:0.26rem; /* 12÷10=1.2 */ font-family: "microsoft yahei","Arial", "Verdana", "sans-serif"; color:#464646;  font-weight:normal; background:#fff;  }
+a{ text-decoration:none; color:#333;}
+a:hover{ color:#F93; text-decoration: none;}
+
+.mweb{ 
+    position: relative;  width:100%; margin:0 auto;
+    background:#ebebeb;
+}
+.l{ float:left;}
+.r{ float:right;}
+.left{ text-align:left}
+.right{ text-align:right;}
+.head{ width:100%; background:#fff; color:#fff;    overflow:hidden;  margin:0 auto;  padding:0 ;  padding-top:0.1rem; padding-bottom:0.1rem;}
+.logo{ width:25%; float:left; text-align:center; }
+.logo img{ width:1.4rem;  text-align:center; margin:0 auto; padding-top:0.05rem;}
+.topsch{ width:62%; float:left; height:0.63rem; border:1px solid #bfbfbf; position: relative}
+.topsch .text{ width:85%;height:0.6rem; height:0.6rem; border:none; float:left; font-family:microsoft yahei; font-size:0.25rem;}
+.topsch .button{ width:15%; height:0.61rem; cursor:pointer; background:url(../images/search.png) center center  no-repeat;background-size:0.29rem 0.3rem;
+    position: absolute;
+    top:0;
+    right:0;
+    border:none;
+}
+.topman{ width:12.5%; float:left; padding-top:0.05rem;text-align:center;}
+.topman a img{ width:0.50rem; text-align:center; margin:0 auto;}
+#indexSearch::-webkit-input-placeholder{
+    color: #c9c9c9;
+    text-align: center;
+}    /* 使用webkit内核的浏览器 */
+#indexSearch:-moz-placeholder{
+    color: #c9c9c9;
+
+    text-align: center;
+}                  /* Firefox版本4-18 */
+#indexSearch::-moz-placeholder{
+    color: #c9c9c9;
+
+    text-align: center;
+}                  /* Firefox版本19+ */
+#indexSearch:-ms-input-placeholder{
+    color: #c9c9c9;
+    text-align: center;
+}           /* IE浏览器 */
+.indicon{ padding-top:0.07rem;}
+.icon{ margin:0 0.07rem; margin-bottom:0.07rem; height:1.5rem; background:#fff;}
+.iconimg{ width:25%; text-align:center;}
+.iconimg img{ width:0.6rem; padding-top:0.15rem;}
+.icon a{ display:block; height:1rem;padding-top:0.3rem;  background:url(../images/arrow.png) 95% 0.65rem no-repeat; background-size:0.17rem 0.28rem;}
+.icon h3{ font-size:0.36rem;}
+.icon span{  padding-top:0.05rem; color:#aeaeae;}
+
+.topnews{ background:#fff; width:100%;  height:1.8rem; display:block; clear:both; margin-bottom:0.07rem; }
+.newstil{ padding:0.2rem; border-bottom:1px solid #ebebeb; width:100%; overflow:hidden;}
+.newstil img{ width:1.66rem; padding-top:0.05rem;}
+.newstil a{ display:block; font-size:0.28rem; background:url(../images/arrow1.png) right center no-repeat; padding-right:0.17rem; margin-top:0.1rem; background-size:0.12rem 0.18rem;}
+.newscon{ padding:0.3rem 0.15rem  0; position:relative; width:100%;}
+#indnewscroll{width:100%;height:0.4rem; overflow:hidden; display: block;}
+#indnewscroll ul{width:100%;}
+#indnewscroll ul li{ height:0.4rem;}
+#indnewscroll ul li>a>.headLine{
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+#indnewscroll ul li>a>.time{
+    width:25%;
+    display: inline-block;
+}
+.newscon a{ font-size:0.28rem; display:block;}
+
+.fcnews{ background:#fff; width:100%; overflow:hidden;  display:block; clear:both; margin-bottom:0.07rem; }
+.indtil{ padding:0.15rem; border-bottom:1px solid #ebebeb; width:100%; overflow:hidden; font-size:0.36rem; color:#ff6419;}
+.fcnewscon{ padding:0 0.15rem; background:url(../images/dot.gif) center center repeat-y; overflow:hidden;}
+.scrollbox{ position: relative; width:100%;}
+#scrollDiv{width:100%;height:1.7rem; overflow:hidden; display: block;}
+#scrollDiv ul{ width:104%; overflow:hidden;}
+#scrollDiv ul li{ width:50%; height:1.7rem; float:left; padding:0.4rem 2% 0 0; overflow:hidden;}
+#scrollDiv ul li .proname { overflow:hidden; display: flex;}
+#scrollDiv ul li .proname  h3{ font-size:0.32rem; font-weight:normal; float:left; color:#040404; padding-right:0.25rem;
+    width:50%;
+    height:.4rem;
+    display: inline-block;
+    text-align: left;}
+#scrollDiv ul li .proname  span{ font-size:0.26rem; color:#aeaeae; float:left;  line-height:0.4rem;
+    width:50%; display: inline-block;
+    height:.4rem;
+    text-align: right;
+}
+
+
+#scrollDiv ul li .prorice { overflow:hidden; padding-top:0.15rem;}
+#scrollDiv ul li .prorice  span{ display: inline-block;}
+#scrollDiv ul li .prorice  span.iprice{ font-size:0.30rem; color:#ff0000; width:37%;}
+#scrollDiv ul li .prorice  span.iaddress{ font-size:0.28rem; color:#464646;  width:33%;}
+#scrollDiv ul li .prorice  span.idata{ font-size:0.30rem; color:#ff0000;  width:30%;}
+
+
+.datanews{ background:#fff; width:100%;  display:block; clear:both;  overflow:hidden; padding-bottom:1.45rem;}
+.datanscon{ padding:0.15rem  ;overflow:hidden; }
+.datanscon ul li span{ padding:0 0.1rem 0 0; display:inline; font-size:0.26rem;}
+.datanscon ul li span.color1{ color:#ff6419;
+    text-align: left;}
+
+.list_lh {
+    height: 2.7rem;
+    overflow: hidden;
+}
+.list_lh li{
+    padding:0.05rem 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.list_lh li>span{
+    text-align: center;
+    /*text-overflow: ellipsis;*/
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    width:25%;
+}
+.list_lh li span:nth-child(2){
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    width:25%;
+
+}
+.list_lh li span:nth-child(3){
+    text-align: left;
+}
+.list_lh li span:nth-child(4){
+    text-align: right;
+}
+
+/*.btonav{ width:100%;  border-top:0.07rem solid #ebebeb; padding:0.10rem 0; overflow:hidden; position:fixed; bottom:0 ; left:0;  background:#fff; z-index:111111;}*/
+/*.btonav ul li{ width:25%; float:left; text-align:center; padding-top:0.05rem;}*/
+/*.btonav ul li .navpic{ width:0.65rem; height:0.65rem; border:1px solid #dadada;  border-radius:0.65rem; margin:0 auto; }*/
+
+/*.btonav ul li .navpic img{ padding-top:0.15rem; }*/
+/*.btonav ul li a{ color:#7c7c7c; font-size:0.26rem}*/
+/*!*.btonav ul li a>.num{*!*/
+    /*!*width:.4rem;*!*/
+    /*!*height:.4rem;*!*/
+    /*!*background: #ff6419;*!*/
+    /*!*border: 1px solid #fff;*!*/
+    /*!*border-radius: .2rem;*!*/
+    /*!*position: absolute;*!*/
+    /*!*top:-.1rem;*!*/
+    /*!*right:.28rem;*!*/
+    /*!*color: #fff;*!*/
+    /*!*line-height:.4rem;*!*/
+    /*!*text-align: center;*!*/
+    /*!*font-size:.24rem;*!*/
+    /*!*padding-top:.04rem;*!*/
+/*!*}*!*/
+/*.btonav  .spant{*/
+    /*font-size:.17rem;*/
+    /*color: #7c7c7c;*/
+/*}*/
+/*.btonpw1{width:0.25rem}*/
+/*.btonpw2{width:0.3rem}*/
+/*.btonpw3{width:0.37rem}*/
+
+/*---------------*/
+.swiper-container {
+        width: 100%;
+        height: 3.1rem;
+        
+    }
+.swiper-container div{
+    width: 100%!important;
+}
+	.swiper-slide img{
+        width:100%!important;
+        height:3.11rem;
+        position: absolute;
+        /*overflow: hidden;*/
+    }
+
+
+
+
+
+
+
+
+
+

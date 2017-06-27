@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>商城</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/wx.css" />
+    <style>
+        .all-dw{
+            display: none!important;
+        }
+        .price-dj{
+            display: none!important;
+        }
+    </style>
+</head>
+<body>
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+    <div class="top-searchBox">
+        <input type="search" placeholder="请输入具体材质、规格查询">
+    </div>
+    <button class="top-btn">查询</button>
+</div>
+<div class="top-selector">
+    <div class="selector">
+        <select name="city" id="">
+            <option value="gz">广州</option>
+            <option value="fs">佛山</option>
+            <option value="sz">深圳</option>
+            <option value="zq">肇庆</option>
+        </select>
+        <select name="product" id="">
+            <option value="gz">普板</option>
+            <option value="fs">优碳板</option>
+            <option value="sz">冷轧板</option>
+            <option value="zq">热轧板</option>
+        </select>
+        <select name="product" id="">
+            <option value="gz">钢厂</option>
+            <option value="fs">马钢</option>
+            <option value="sz">韶钢</option>
+            <option value="zq">宝钢</option>
+        </select>
+        <select name="productSize" id="">
+            <option value="">规格</option>
+            <option value="23*2220*9450">23*2220*9450</option>
+            <option value="115*2200*10600">115*2200*10600</option>
+            <option value="50*2200*10400">50*2200*10400</option>
+        </select>
+        <select name="factory" id="">
+            <option value="">材质</option>
+            <option value="HRB400E">HRB400E</option>
+            <option value="HPB300">HPB300</option>
+            <option value="Q345D">Q345D</option>
+        </select>
+
+    </div>
+</div>
+<div class="detal">
+    <div class=" row row1">
+
+        <span class="bloder">低合金板</span>
+        <span>14*2000*L</span>
+        <span>Q3458</span>
+        <span>马钢</span>
+        <span class="price">￥4800</span>
+        <span class="price-dj">￥4800</span>
+    </div>
+    <div class=" row2">
+        <span>佛山</span>
+        <span>骏杰仓</span>
+        <span>10件/23.15吨</span>
+    </div>
+    <div class=" row3">
+        <div class="col col1">
+            <span class="phone">
+                <a href="tel:10086"></a>
+            </span>
+        </div>
+        <div class="col col2">
+            <div class="countBox">
+                <span class="deduct">
+                    <button class="btn1">-</button>
+                </span>
+                <span class="num">1</span>
+                <span class="add">
+                    <button class="btn2">+</button>
+                </span>
+            </div>
+            <span class="all">2.313吨</span>
+            <span class="all-dw">2.313</span>
+        </div>
+        <div class="col col3">
+            <span class="buy"><a href=""></a></span>
+        </div>
+
+    </div>
+</div>
+<div class="detal">
+    <div class=" row row1">
+
+        <span class="bloder">低合金板</span>
+        <span>14*2000*L</span>
+        <span>Q3458</span>
+        <span>马钢</span>
+        <span class="price">￥4800</span>
+        <span class="price-dj">￥4800</span>
+    </div>
+    <div class=" row2">
+        <span>佛山</span>
+        <span>骏杰仓</span>
+        <span>10件/23.15吨</span>
+    </div>
+    <div class=" row3">
+        <div class="col col1">
+            <span class="phone">
+                <a href="tel:10086"></a>
+            </span>
+        </div>
+        <div class="col col2">
+            <div class="countBox">
+                <span class="deduct">
+                    <button class="btn1">-</button>
+                </span>
+                <span class="num">1</span>
+                <span class="add">
+                    <button class="btn2">+</button>
+                </span>
+            </div>
+            <span class="all">2.313吨</span>
+            <span class="all-dw">2.313</span>
+        </div>
+        <div class="col col3">
+            <span class="buy"><a href=""></a></span>
+        </div>
+
+    </div>
+</div>
+<div class="detal">
+    <div class=" row row1">
+
+        <span class="bloder">低合金板</span>
+        <span>14*2000*L</span>
+        <span>Q3458</span>
+        <span>马钢</span>
+        <span class="price">￥4800</span>
+        <span class="price-dj">￥4800</span>
+    </div>
+    <div class=" row2">
+        <span>佛山</span>
+        <span>骏杰仓</span>
+        <span>10件/23.15吨</span>
+    </div>
+    <div class=" row3">
+        <div class="col col1">
+            <span class="phone">
+                <a href="tel:10086"></a>
+            </span>
+        </div>
+        <div class="col col2">
+            <div class="countBox">
+                <span class="deduct">
+                    <button class="btn1">-</button>
+                </span>
+                <span class="num">1</span>
+                <span class="add">
+                    <button class="btn2">+</button>
+                </span>
+            </div>
+            <span class="all">2.313吨</span>
+            <span class="all-dw">2.313</span>
+        </div>
+        <div class="col col3">
+            <span class="buy"><a href=""></a></span>
+        </div>
+
+    </div>
+</div>
+<div class="detal">
+    <div class=" row row1">
+
+        <span class="bloder">低合金板</span>
+        <span>14*2000*L</span>
+        <span>Q3458</span>
+        <span>马钢</span>
+        <span class="price">￥4800</span>
+        <span class="price-dj">￥4800</span>
+    </div>
+    <div class=" row2">
+        <span>佛山</span>
+        <span>骏杰仓</span>
+        <span>10件/23.15吨</span>
+    </div>
+    <div class=" row3">
+        <div class="col col1">
+            <span class="phone">
+                <a href="tel:10086"></a>
+            </span>
+        </div>
+        <div class="col col2">
+            <div class="countBox">
+                <span class="deduct">
+                    <button class="btn1">-</button>
+                </span>
+                <span class="num">1</span>
+                <span class="add">
+                    <button class="btn2">+</button>
+                </span>
+            </div>
+            <span class="all">2.313吨</span>
+            <span class="all-dw">2.313</span>
+        </div>
+        <div class="col col3">
+            <span class="buy"><a href=""></a></span>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="footer-btn">
+    <a href="entrust.html">
+        <img src="images/find.png" alt="">
+    </a>
+
+    <!--<a href="shoppingcar.html">-->
+        <!--<span class="circle">0</span>-->
+        <!--<img src="images/gwc.png" alt="">-->
+    <!--</a>-->
+</div>
+
+<div class="footNav">
+    <ul>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botgy.png"  class="footPic1"></div>
+                <div>关于钢域</div>
+            </a>
+        </li>
+        <li>
+            <a  href="tool.html">
+                <div class="navpic"><img src="images/botlj.png"  class="footPic2"></div>
+                <div>理算工具</div>
+            </a>
+        </li>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botdy.png" class="footPic2"></div>
+                <div>我的订单</div>
+            </a>
+        </li>
+        <li>
+            <a  href="shoppingcar.html">
+                <div class="num">0</div>
+                <div class="navpic"><img src="images/botgwc.png" class="footPic3"></div>
+                <div>购物车</div>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $('.btn1').on('click',function(){
+        var a=$(this).parent().siblings('.num').html();
+        if((a-1)==0){return}
+        $(this).parent().siblings('.num').html(a-1)
+        var dw=$(this).parent().parent().siblings('.all-dw').html();
+        var price=$(this).parent().parent().parent().parent().siblings('.row1').children('.price-dj').html()
+        price= parseFloat(price.slice(1,price.length))
+        var weight=dw*(a-1)+'吨'
+        var money='$'+(price*(a-1))
+        console.log(price)
+        console.log(dw)
+        $(this).parent().parent().siblings('.all').html(weight);
+        $(this).parent().parent().parent().parent().siblings('.row1').children('.price').html(money)
+
+
+        /*var nd= $(this).parent().siblings('.num').html(n);
+         var dan=parseFloat($('.all').html());//.siblings('.all').html());
+         if(nd<=1){return};
+
+         var c=(n-1)*dan;
+         console.log(n)
+         console.log(dan);
+         console.log(c);
+         $(this).parent().parent().siblings('.all').html(c+'吨')
+         */
+
+    });
+    $('.add>.btn2').on('click',function(){
+        var a=$(this).parent().siblings('.num').html();
+        a=parseFloat(a);
+        $(this).parent().siblings('.num').html(a+1)
+        var dw=$(this).parent().parent().siblings('.all-dw').html();
+        var price=$(this).parent().parent().parent().parent().siblings('.row1').children('.price-dj').html()
+        price= parseFloat(price.slice(1,price.length))
+        var weight=dw*(a+1)+'吨'
+        var money='$'+(price*(a+1))
+        console.log(price)
+        console.log(dw)
+        $(this).parent().parent().siblings('.all').html(weight);
+        $(this).parent().parent().parent().parent().siblings('.row1').children('.price').html(money)
+
+
+    })
+
+
+    function buy(){
+        var myCar=parseInt( $('.circle').html());
+        console.log(myCar)
+       var n= myCar+=1;
+        $('.circle').html( n);
+    }
+    $('.col3 .buy').click(function () {
+        buy();
+    })
+</script>
+</html>

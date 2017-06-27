@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxmim-scale=1.1,user-scalable=no">
+    <!-- 苹果用户的属性 -->
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>首页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+<script src="js/jQuery.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+        !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);
+        flex(100, 1);
+</script>
+
+</head>
+
+<body>
+<div class="mweb">
+<div class="head">
+<div class="logo"><img src="images/logo.png"></div>
+<div class="topsch">
+    <input name="" type="text" class="text" placeholder="搜索钢材" id="indexSearch">
+    <input name="" type="button" class="button">
+</div>
+<div class="topman"><a href="#"><img src="images/man.png"></a></div>
+</div>
+<div class="bannermmm">
+    <!-- Swiper -->
+    <!--<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/ban1.jpg"></div>
+            <div class="swiper-slide"><img src="images/ban3.jpg"></div>
+            <div class="swiper-slide"><img src="images/ban4.jpg"></div>
+        </div>
+        &lt;!&ndash; Add Pagination &ndash;&gt;
+        <div class="swiper-pagination"></div>
+    </div>-->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/ban1.jpg"></div>
+            <div class="swiper-slide"><img src="images/ban1.jpg"></div>
+            <div class="swiper-slide"><img src="images/ban1.jpg"></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+    });
+    </script>
+
+</div>
+
+<div class="indicon">
+  <div class="icon">
+  <a href="superMarket.html">
+    <div class="iconimg l"><img src="images/pc.png"></div>
+    <div class="icontext l"><h3>商城</h3><span>一手货源 &nbsp;  下单即提</span></div>
+  </a>
+  </div>
+  <div class="icon">
+  <a href="productSearch.html">
+    <div class="iconimg l"><img src="images/search2.png"></div>
+    <div class="icontext l"><h3>现货搜索</h3><span>海量现货 &nbsp;  专业服务</span></div>
+  </a>
+  </div>
+  <div class="icon">
+  <a href="#">
+    <div class="iconimg l"><img src="images/kf.png"></div>
+    <div class="icontext l"><h3>钢铁管家</h3><span>一站式服务体系，赋能用钢终端</span></div>
+  </a>
+  </div>
+  <div class="icon">
+  <a href="#">
+    <div class="iconimg l"><img src="images/indexjr.png" ></div>
+    <div class="icontext l"><h3>钢域金融</h3><span>先货后款，托盘订货，寄售融资</span></div>
+  </a>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#indnewscroll").Scroll({line:1,speed:800,timer:8000,up:"but_up",down:"but_down"});
+});
+</script>
+<div class="topnews">
+   <div class="newstil"><img src="images/newstil1.png" class="l"><a href="gyNews.html" class="r">更多</a></div>
+   <div class="newscon">
+     <div id="indnewscroll">
+       <ul>
+        <li><a href="#"><span class="headLine left l">中国市场&特朗普基建计划偶放假哦......</span> <span class="time right r">2017.3.25</span></a></li>
+        <li><a href="#"><span class="headLine left l">中国市场&特朗普基建计划发发格仍......</span> <span class="time right r">2017.3.25</span></a></li>
+        <li><a href="#"><span class="headLine left l">中国市场&特朗普基建计划发生过 ......</span> <span class="time right r">2017.3.25</span></a></li>
+       </ul>
+     </div>
+   </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/lbnews.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#scrollDiv").Scroll({line:2,speed:600,timer:6000,up:"but_up",down:"but_down"});
+});
+</script>
+<div class="fcnews">
+   <div class="indtil">钢厂指导价</div>
+   <div class="fcnewscon">
+   <div class="scrollbox">
+      <div id="scrollDiv">
+			<ul>
+				<li>
+                  <div class="proname"><h3>二毛低合金板</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice">4800</span><span class="iaddress">佛山</span><span class="idata">+100</span></div>
+                </li>
+                <li>
+                  <div class="proname"><h3>螺纹钢</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice" style="color:#6C0">4800</span><span class="iaddress">佛山</span><span class="idata" style="color:#6C0">-100</span></div>
+                </li>
+                <li>
+                  <div class="proname"><h3>冷轧卷</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice">4800</span><span class="iaddress">佛山</span><span class="idata">+100</span></div>
+                </li>
+                <li>
+                  <div class="proname"><h3>开平普板</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice">4800</span><span class="iaddress">佛山</span><span class="idata">+100</span></div>
+                </li>
+                <li>
+                  <div class="proname"><h3>开平普板</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice">4800</span><span class="iaddress">佛山</span><span class="idata">+100</span></div>
+                </li>
+                <li>
+                  <div class="proname"><h3>开平普板</h3><span>01-12 9:35</span></div>
+                  <div class="prorice"><span class="iprice">4800</span><span class="iaddress">佛山</span><span class="idata">+100</span></div>
+                </li>
+                
+            </ul>    
+      
+   </div>
+   </div>
+</div>
+
+</div>
+
+<script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	$("div.list_lh").myScroll({
+		speed:60, //数值越大，速度越慢
+		rowHeight:68 //li的高度
+	});
+});
+</script>
+<div class=" datanews">
+   <div class="indtil">交易动态</div>
+   <div class="datanscon">
+     <div class="list_lh">
+       <ul>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛金板  Q345B </span> <span>15.258吨</span></li>
+        <li><span>1-29  17:45:25 </span>  <span>蓝**采购了</span> <span class="color1">  二毛低合金板  Q345B </span> <span>15.258吨</span></li>
+       </ul>
+     </div>
+   </div>
+</div>
+
+
+
+</div>
+<div class="btonav">
+    <ul>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botgy.png"  class="btonpw1"></div>
+                <div class="spant">关于钢域</div>
+            </a>
+        </li>
+        <li>
+            <a  href="tool.html">
+                <div class="navpic"><img src="images/botlj.png"  class="btonpw2"></div>
+                <div class="spant">理算工具</div>
+            </a>
+        </li>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botdy.png" class="btonpw2"></div>
+                <div class="spant">我的订单</div>
+            </a>
+        </li>
+        <li>
+            <a  href="shoppingcar.html">
+                <div class="num">0</div>
+                <div class="navpic"><img src="images/botgwc.png" class="btonpw3"></div>
+                <div class="spant">购物车</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

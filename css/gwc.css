@@ -1,0 +1,267 @@
+html,body{
+    font-size:40px;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+/*顶部导航栏*/
+.mtop{
+    width:100%;
+    height:2.3rem;
+    background:#f69700;
+    color:#fff;
+    line-height:2.3rem;
+    position: relative;
+    text-align: center;
+    font-size:0.9rem;
+}
+.mtop>a{
+    display:block;
+    /*float:left;*/
+    width:1.75rem;
+    height:2.25rem;
+    background:url(../images/arrow2.png) center center no-repeat;
+    background-size:.5rem .75rem;
+    position: absolute;
+    padding-top:.3rem;
+
+}
+.mtop span{
+    position: relative;
+    left:-1.35rem;
+}
+.mtop>.cleanAll{
+    position: absolute;
+    display: inline-block;
+    width:2.5rem;
+    height:1.5rem;
+    right:.5rem;
+    top:.5rem;
+    font-size:.7rem;
+    line-height:1.5rem;
+    border-radius: .25rem;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+}
+.container{
+
+
+    overflow: hidden;
+}
+.content{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    padding-left:1.65rem;
+    padding-right:0.25rem;
+    font-size:0.7rem;
+    color:#727272;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+}
+.content>b,.qx>b{
+    display: inline-block;
+    width: 0.7rem;
+    height:0.7rem;
+    border:1px solid #ddd;
+    position: absolute;
+    top:0.7rem;
+    left:0.7rem;
+}
+.content>b.checked{
+    background:url('../images/checked.jpg');
+    background-size:100% 100%;
+}
+.content>div{
+    margin-bottom:0.25rem;
+}
+.name{
+    color:#000;
+    font-weight: bold;
+}
+.price{
+    color:#000;
+    float:right;
+}
+.count{
+    margin-left:1.75rem;
+}
+/*加减按钮*/
+.addc{
+    margin-right:0.5rem;
+}
+.addc>div{
+    box-sizing: border-box;
+    width:1.125rem;
+    height:1.25rem;
+    border:1px solid #ddd;
+    text-align: center;
+    line-height: 1.25rem;
+
+}
+.addc>span{
+    display: inline-block;
+    width:1.6rem;
+    height: 1.25rem;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    text-align: center;
+    line-height: 1.25rem;
+}
+.addc-p{
+    line-height: 1.25rem;
+}
+/**/
+.btn-delete{
+    width:3rem;
+    height:1.25rem;
+    line-height:1.25rem;
+    border:1px solid #ddd;
+    border-radius: .3rem;
+    text-align: center;
+}
+.count1{
+    display: none!important;
+}
+.price-count1{
+    display: none!important;
+}
+.qx-txt{
+    margin-right:0.5rem;
+}
+.content-zong>div{
+    margin-right:0.5rem;
+}
+.qx-checked{
+    background:url('../images/checked.jpg');
+    background-size:100% 100%;
+}
+.btn-left,.btn-right{
+    box-sizing: border-box;
+    width:  7.3rem;
+    height:2rem;
+    color:#fff;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 0.25rem;
+    font-size:0.75rem;
+}
+.btn{
+    overflow: hidden;
+    margin-top:.5rem;
+}
+.btn-left{
+    background: #cecd8b;
+    margin-left:0.5rem;
+}
+.btn-right{
+    background: #f69700;
+     margin-right:0.5rem;
+}
+.last-div{
+    font-size: 0.65rem;
+    text-align: center;
+    margin-top:0.6rem;
+    color: #aeaeae;
+}
+.last-div>b{
+    display: inline-block;
+    width:0.6rem;
+    height:0.6rem;
+    background:url(../images/phone1.png);
+    background-size: 100% 100% ;
+
+}
+/*确认删除模态框*/
+
+.del-model{
+    position: fixed;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    background:rgba(0,0,0,0.6);
+    font-size: 0.65rem;
+    display: none;
+}
+.del-model>.content{
+    box-sizing: border-box;
+    background:#ffffff;
+    width:14rem;
+    height:10rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-5rem;
+    margin-left:-7rem;
+    border-radius: 0.4rem;
+    padding:0.7rem;
+    color:#898989;
+}
+.del-model>.content>h1{
+    font-size:1rem;
+    color: #000000;
+    text-align:center;
+    margin-top:1rem;
+
+}
+.del-model>.content>.d-del{
+    font-size:.6rem;
+    color: #ffffff;
+    text-align: center;
+    margin-top:2rem;
+    margin-left:1.5rem;
+    line-height:1.5rem;
+    height:1.5rem;
+    width:4rem;
+    border-radius: .2rem;
+    background: #f69700;
+    display: inline-block;
+
+}
+.del-model>.content>.n-del{
+    font-size:.6rem;
+    color: #ffffff;
+    text-align: center;
+    margin-top:2rem;
+    margin-left:2rem;
+
+    line-height:1.5rem;
+    height:1.5rem;
+    width:4rem;
+    border-radius: .2rem;
+    background: #666;
+    display: inline-block;
+
+}
+.del-model .close {
+    position: absolute;
+    top:0;
+    right: 0.5rem;
+    font-size:1.5rem;
+    line-height:1.5rem;
+    cursor: pointer;
+
+}
+.null-p{
+     font-size:.7rem;
+     color: #b9b9b9;
+    margin:0 auto;
+    text-align: center;
+    margin-top:2rem;
+    margin-bottom:5rem;
+ }
+.null-buy{
+    width:14rem;
+    height:2rem;
+    font-size:.75rem;
+    color: #fff;
+    display: block;
+    background: #f69700;
+    text-align: center;
+    line-height:2rem;
+    margin:0 auto;
+}

@@ -1,0 +1,250 @@
+html,body{
+    font-size:40px;
+
+
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+/*顶部导航栏*/
+.mtop{
+    width:100%;
+    height:2.3rem;
+    background:#f69700;
+    color:#fff;
+    line-height:2.3rem;
+    position: relative;
+    text-align: center;
+    font-size:0.9rem;
+}
+.mtop>a{
+    display:block;
+    /*float:left;*/
+    width:1.75rem;
+    height:2.25rem;
+    background:url(../images/arrow2.png) center center no-repeat;
+    background-size:.5rem .75rem;
+    position: absolute;
+    padding-top:.3rem;
+
+}
+.mtop span{
+    position: relative;
+    left:-1.35rem;
+}
+/*详情*/
+.container{
+    /*background: #ebebeb;*/
+    padding-left:0.25rem;
+    padding-right:0.25rem;
+    padding-top:0.25rem;
+    overflow: hidden;
+}
+.container-content{
+    /*background: #fff;*/
+    width:100%;
+    padding:0.5rem;
+    font-size:0.7rem;
+    overflow: hidden;
+}
+.container-content>div{
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    height:3.125rem;
+    line-height:3.125rem;
+}
+.user{
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    height:3.125rem;
+    line-height:3.125rem;
+}
+.user .logo{
+    box-sizing: border-box;
+    width:2.25rem;
+    height:2.25rem;
+    /*background:url(../images/userlogo.png) no-repeat;*/
+    /*background-size:100% 100%;*/
+    margin-top:0.5125rem;
+    /*right:1rem;*/
+    position: relative;
+}
+.user .logo>img{
+    width:2.25rem;
+    border-radius: 1.125rem;
+}
+.user .logo>input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.user-name{
+    height:3.125rem;
+    line-height:3.125rem;
+    border-bottom: 1px solid #ddd;
+}
+.user-name .p-number{
+    text-align: center;
+}
+.container-content .sex{
+    width: 11.2rem;
+    height: 1.6rem;
+    font-size:07rem;
+}
+.container-content .radio-box{
+    width: 11.2rem;
+    height:1.6rem;
+    line-height:1.6rem;
+    font-size:.7rem;
+    margin-top:.8rem;
+    position: relative;
+
+}
+.radio-box>#man{
+     width:.8rem;
+     height:.8rem;
+     position: absolute;
+     left: 0;
+     top:.5rem;
+
+ }
+.radio-box>.man{
+    width:.8rem;
+    height:.8rem;
+    position: absolute;
+    left: 1rem;
+    top:0rem;
+
+}
+.radio-box>#woman{
+    width:.8rem;
+    height:.8rem;
+    position: absolute;
+    left: 3rem;
+    top:.5rem;
+
+}
+.radio-box>.woman{
+    width:.8rem;
+    height:.8rem;
+    position: absolute;
+    left: 4rem;
+    top:0rem;
+
+}
+
+/*.container-content .sex>label,input{*/
+    /*width:.5rem;*/
+    /*height:.5rem;*/
+
+/*}*/
+.container-content>div input{
+    width:11.2rem;
+    height:1.6rem;
+    border:1px solid #ebebeb;
+    line-height: 1.6rem;
+    font-size: 0.7rem;
+    padding-left:0.5rem
+}
+.container .adress{
+    height:6rem;
+}
+.select select{
+    width:5.5rem;
+    height:1.35rem;
+    border:1px solid #ddd;
+    color:#000;
+    font-size:.6rem;
+    text-align: center;
+
+}
+.select select option{
+    font-size:.3rem;
+    color:#000;
+}
+.right textarea{
+    box-sizing: border-box;
+    width:11.25rem;
+    height:2.6rem;
+    border:1px solid #ddd;
+    font-size:0.7rem;
+    padding:0.2rem;
+}
+.container .last-div{
+    border: none;
+}
+ .container .btn{
+    width:14.5rem;
+    height:2rem;
+    background:#f69700;
+    font-size:0.875rem;
+    color:#fff;
+    text-align: center;
+    line-height: 2rem;
+     border-radius: 4px;
+}
+ .container .cx-dl{
+     height:40px;
+     font-size:.7rem;
+     line-height: 40px;
+     margin-top:0.25rem;
+     cursor: pointer;
+     border:none;
+ }
+ .cx-dl>a{
+     color: #b2b2b2;
+ }
+
+.success-model{
+    position: fixed;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    background:rgba(0,0,0,0.6);
+    font-size: 0.65rem;
+    display: none;
+}
+.success-model>.content{
+    box-sizing: border-box;
+    background:#ffffff;
+    width:14.5rem;
+    height:10rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top:-5rem;
+    margin-left:-7.25rem;
+    border-radius: 0.4rem;
+    padding:0.7rem;
+    color:#898989;
+}
+.success-model>.content>h1{
+    font-size:1rem;
+    color: #ff9d00;
+    text-align:center;
+    margin-top:1rem;
+    
+}
+.success-model>.content>p{
+    font-size:.6rem;
+    color: #969696;
+    text-align: center;
+    margin-top:.75rem;
+    line-height:1.5rem;
+
+}
+.success-model .close {
+    position: absolute;
+    top:0;
+    right: 0.5rem;
+    font-size:1.5rem;
+    line-height:1.5rem;
+    cursor: pointer;
+
+}
+

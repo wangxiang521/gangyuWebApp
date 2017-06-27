@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>我的钢域</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/wx.css" />
+</head>
+<body>
+<!--头部-->
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+        我的钢域
+    </div>
+</div>
+    <div class="myGy-main">
+        <div class="user">
+            <div class="user-msg" onclick="javascript:window.location.href=('personal-info.html')">
+                <span class="user-photo"></span>
+                <div class="user-name">
+                    <p class="p1">陈先生</p>
+                    <p class="p2">13412345678</p>
+                </div>
+            </div>
+            <div class="shopping-car">
+                <span></span>
+                <span class="num">2</span>
+            </div>
+        </div>
+        <div class="myGy-list">
+            <div class="l myList">
+                <span></span><p>我的订单</p>
+            </div>
+            <div class="r showAll">
+                <p class="r">查看全部</p>
+                <a href="View-account.html">  </a>
+            </div>
+        </div>
+        <div class="myGy-pay">
+            <div class="waitTo">
+                <p>
+                    <a href="shoppingcar.html">待付款 <span class="wNum">0</span></a>
+
+                </p>
+            </div>
+            <div class="payed">
+                <p><a href="View-account.html">已付款</a></p>
+            </div>
+            <div class="paySuccess">
+                <p><a href="">交易成功</a></p>
+            </div>
+        </div>
+        <div class="quesstion" onclick="call()">
+            <p>
+                <span class="mgGy-phone"><img src="images/phone2.png" alt=""></span>&nbsp;
+                有疑问请联系交易员  张晓燕
+                <span class="call-phone">13600325698</span>
+            </p>
+        </div>
+        <div class="myGy-shop">
+            <span class="pc"></span>
+            <p>商城</p>
+            <a href="superMarket.html"></a>
+        </div>
+        <div class="myGy-search">
+            <span></span>
+            <p>现货搜索</p>
+            <a href="productSearch.html"></a>
+        </div>
+        <div class="myGy-find">
+            <span></span>
+            <p>委托找货</p>
+            <a href="entrust.html"></a>
+        </div>
+        <div class="myGy-tool">
+            <span></span>
+            <p>理算工具</p>
+            <a href="tool.html"></a>
+        </div>
+    </div>
+
+    </div>
+<script>
+    function call() {
+        window.location.href='tel:10086';
+    }
+</script>
+</body>
+
+</html>

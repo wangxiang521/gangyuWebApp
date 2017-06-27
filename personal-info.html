@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>个人信息</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/grxx.css" />
+</head>
+<body>
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+   个人信息
+</div>
+<div class="container">
+    <div class="container-content">
+        <div class="user">
+            <div class="left">
+                    头像
+            </div>
+            <div class="right logo">
+                <img src="images/userlogo.png" alt="" id="myPhoto">
+                <input type="file" accept="image/jpeg,image/png,image/gif,image/bmp" id="inputP">
+            </div>
+        </div>
+        <div class="user-name">
+            <div class="p-number">
+                <div class="right">
+                    135355474945
+                </div>
+            </div>
+            <div class="left">
+                用户名
+            </div>
+        </div>
+        <div>
+            <div class="left">
+               昵称
+            </div>
+            <div class="right user-name2" >
+                <input type="text" value="李飘飘">
+            </div>
+        </div>
+        <div>
+            <div class="left">
+                性别
+            </div>
+            <div class= "right radio-box">
+                <input type="radio" id="man" name="sex">
+                <label for="man" class="man">男</label>
+                <label for="woman" class="woman">女</label>
+                <input type="radio" id="woman" name="sex">
+            </div>
+        </div>
+        <div>
+            <div class="left">
+                公司名称
+            </div>
+            <div class="right ">
+                <input type="text" value="卡卡贸易有限公司">
+            </div>
+        </div>
+        <div>
+            <div class="left">
+                主营品种
+            </div>
+            <div class="right">
+                <input type="text" value="冷轧、热轧">
+            </div>
+        </div>
+        <div class="adress">
+            <div class="left">
+                地址
+            </div>
+            <div class="right select">
+                <select>
+                    <option value="1">广东省</option>
+                    <option value="1">广西省</option>
+                    <option value="1">湖南省</option>
+                    <option value="1">福建省</option>
+                </select>
+                <select>
+                    <option value="1">佛山</option>
+                    <option value="1">深圳</option>
+                    <option value="1">清远</option>
+                    <option value="1">肇庆</option>
+                </select>
+
+            </div>
+            <div class="right">
+                <textarea >陈村镇白晨路一号</textarea>
+            </div>
+        </div>
+
+            <div class="btn" onclick="javascript:window.location.href='index.html'">
+                保存
+            </div>
+
+        <div class="cx-dl right"><a href="login.html">重新登陆</a></div>
+
+
+
+    </div>
+</div>
+
+<!--成功模块-->
+<div class="success-model">
+    <div class="content">
+        <span class="close">&times;</span>
+        <h1>恭喜您注册成功！</h1>
+        <p>请完善个人信息，钢域网将为您提供 <br> 更优质的服务</p>
+    </div>
+</div>
+
+<script src="js/jQuery.js"></script>
+
+<script>
+    $('.btn').on('click',function(){
+        $('.success-model').css('display','block')
+    })
+    $('.close').on('click',function(){
+        $('.success-model').css('display','none')
+    })
+//    $('#inputP').change(function(){
+//        var input=$('#inputP').val();
+//        console.log(input);
+//        if(input!=""){
+//            $('.logo').css('background','url('+input+') no-repeat');
+//            console.log( $('.logo').css('background'));
+//        }
+//
+//    })
+
+//    头像修改
+    $('#inputP').on('change', function(e){
+        var file=document.getElementById("inputP");
+        var imgObjPreview=document.getElementById("myPhoto");
+        var imgUrl = window.URL.createObjectURL(file.files[0]);
+        imgObjPreview.style.display = 'inline-block';
+        imgObjPreview.style.width = '100%';
+        imgObjPreview.style.height = '100%';
+        $('#myPhoto').attr('src',imgUrl);
+        event.target.value='';
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>理算工具</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/wx.css" />
+    <style>
+        .T-long{
+            display:none
+        }
+        .T-weight{
+            display: none;
+        }
+        .T-long.active,.T-weight.active{
+            display: block;
+        }
+        .weight.active{
+            background: #ffedcf;
+            border: 1px solid #ff9d00;
+            color: #ff9d00;
+            font-size:.7rem;
+        }
+        .long.active{
+            background: #ffedcf;
+            border: 1px solid #ff9d00;
+            color: #ff9d00;
+            font-size:.7rem;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+    <div class="myTitle">
+        <h3>理算工具</h3>
+    </div>
+</div>
+
+<!--主体-->
+<div class="main">
+    <div class="tool-container">
+        <!--div 模拟下拉列表--------------------------------->
+        <div class="type-list parent">
+            <p class="type-input">中厚板</p>
+            <div class="list-btn"></div>
+        </div>
+        <div class="allType parent">
+            <div class="my-li lwg get">螺纹钢</div>
+            <div class="my-li ljg">六角钢</div>
+            <div class="my-li bjg">八角钢</div>
+            <div class="my-li zhb">中厚板</div>
+            <div class="my-li bg">扁钢</div>
+            <div class="my-li gg">钢管</div>
+            <div class="my-li ygpt">圆钢盘条</div>
+        </div>
+
+
+        <!--下拉列表结束------------------------------------->
+        <div class="parent kaiguan">
+            <div class="child weight active">计算重量</div>
+            <div class="child long">计算长度</div>
+        </div>
+    </div>
+    <!--类型模块++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--中厚板-->
+
+    <div class="type-detail">
+        <!--重量-->
+        <div class="T-weight active">
+            <div class="d-w-l">
+                <div class="td-style td-depth">
+                    <div class="td-l">厚度</div>
+                    <div class="td-m"><input type="text" class="depthValue" ></div>
+                    <div class="td-r">mm</div>
+                </div>
+                <div class="td-style td-width">
+                    <div class="td-l tdlwidth">宽度</div>
+                    <div class="td-m"><input type="text" class="widthValue" ></div>
+                    <div class="td-r">mm</div>
+                </div> <div class="td-style td-long">
+                <div class="td-l">长度</div>
+                <div class="td-m"><input type="text" class="longValue"></div>
+                <div class="td-r">m</div>
+            </div>
+
+            </div>
+        </div>
+
+
+        <div class="T-long">
+            <div class="d-w-l">
+                <div class="td-style td-depth">
+                    <div class="td-l">厚度</div>
+                    <div class="td-m"><input type="text" class="depthValue" ></div>
+                    <div class="td-r">mm</div>
+                 </div>
+                <div class="td-style td-width">
+                    <div class="td-l tdlwidth">宽度</div>
+                    <div class="td-m"><input type="text" class="widthValue" ></div>
+                    <div class="td-r">mm</div>
+                </div>
+                 <div class="td-style td-long">
+                    <div class="td-l">重量</div>
+                    <div class="td-m"><input type="text" class="longValue"></div>
+                    <div class="td-r">吨</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!--类型模块++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <div class="tool-output"><p>计算结果: </p><span>0吨</span></div>
+    <div class="tool-getIt">计算</div>
+    <p class="clean r" id="clean">清空数据</p>
+</div>
+
+<div class="footNav">
+    <ul>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botgy.png"  class="footPic1"></div>
+                <div>关于钢域</div>
+            </a>
+        </li>
+        <li>
+            <a  href="tool.html">
+                <div class="navpic"><img src="images/botlj.png"  class="footPic2"></div>
+                <div>理算工具</div>
+            </a>
+        </li>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botdy.png" class="footPic2"></div>
+                <div>我的订单</div>
+            </a>
+        </li>
+        <li>
+            <a  href="shoppingcar.html">
+                <div class="num">0</div>
+                <div class="navpic"><img src="images/botgwc.png" class="footPic3"></div>
+                <div>购物车</div>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/jQuery.js"></script>
+<script>
+
+//    模拟下拉列表
+    $('.list-btn').click(function(){
+        $('.tool-container>.allType').css('display','block');
+//        console.log(1)
+    });
+    $('.allType .my-li').click(function(){
+        $('.tool-container>.allType').css('display','none');
+        //console.log(this);
+        $('.type-detail input').val('');
+        $('.tool-output>span').html('0');
+        var type=$(this).html();
+        console.log(type);
+        $('.type-input').html(type);
+        if(type=='螺纹钢'){
+            $('.td-width').css('display','none')
+            $('.td-depth>.td-l').html('直径');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+        if(type=='中厚板'){
+            $('.td-width').css('display','flex')
+            $('.td-depth>.td-l').html('厚度');
+            $('.tdlwidth').html('宽度');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+        if(type=='圆盘钢条'){
+            $('.td-width').css('display','none')
+            $('.td-depth>.td-l').html('直径');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+        if(type=='钢管'){
+            $('.td-width').css('display','flex')
+            $('.td-depth>.td-l').html('外径');
+            $('.tdlwidth').html('厚度');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+        if(type=='扁钢'){
+            $('.td-width').css('display','flex')
+            $('.td-depth>.td-l').html('厚度');
+            $('.tdlwidth').html('边度');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+        if(type=='六角钢'||type=='八角钢'){
+            $('.td-width').css('display','none')
+            $('.td-depth>.td-l').html('对边距离');
+        }
+    });
+
+    /*重量长度开关*/
+    $('.kaiguan>div').on('click',function(){
+       $(this).addClass('active').siblings().removeClass('active')
+        if($(this).hasClass('weight')){
+                $('.type-detail>.T-weight').addClass('active').siblings('.T-long').removeClass('active')
+        }else{
+                $('.type-detail>.T-long').addClass('active').siblings('.T-weight').removeClass('active')
+        }
+    })
+
+   /* 中厚板计算*/
+   /*重量*/
+ function zhbW(d,w,l){
+     var W=d*w*l*0.00000785;
+     console.log(W);
+     $('.tool-output>span').html(W.toFixed(3)+"吨");
+ }
+function zhbL(dd,ww,ll){
+    var L=ll/(0.00000785*dd*ww);
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*螺纹*/
+function lwW(d,l){
+    d=parseFloat(d);
+    l=parseFloat(l)
+    var W=0.00000617*d*d*l
+    console.log(W);
+    $('.tool-output>span').html(W.toFixed(3)+"吨");
+}
+function lwL(dd,ll){
+    var L=ll/(0.00000617*dd*dd)
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*圆钢盘条*/
+function ygptW(d,l){
+    var W=0.000006165*d*d*l
+    console.log(W);
+    $('.tool-output>span').html(W.toFixed(3)+"吨");
+}
+function ygptL(dd,ll){
+    var L=ll/(0.000006165*dd*dd)
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*钢管*/
+function ggW(d,w,l){
+    var W=0.00002466*d*(w-d)*l
+    console.log(W);
+    $('.tool-output>span').html(W.toFixed(3)+"吨");
+}
+function ggL(dd,ww,ll){
+    var L=ll/(0.00002466*ww*(dd-ww))
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*扁钢*/
+function bgW(d,w,l){
+    var W=0.00000785*d*w*l
+    console.log(W);
+    $('.tool-output>span').html(W.toFixed(3)+"吨");
+}
+function bgL(dd,ww,ll){
+    var L=ll/(0.00000785*dd*ww)
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*八角钢和六角钢*/
+function jgW(d,w){
+    var W=0.000006798*d*w
+    console.log(W);
+    $('.tool-output>span').html(W.toFixed(3)+"吨");
+}
+function jgL(dd,ll){
+    var L=ll/(0.000006798*dd*dd)
+    $('.tool-output>span').html(L.toFixed(3)+"米");
+}
+/*计算按钮的点击事件*/
+$('.tool-getIt').on('click',function(){
+    var d=parseFloat($('.T-weight .depthValue').val());
+    console.log("ds"+d)
+    var w=parseFloat($('.T-weight .widthValue').val())
+    var l=parseFloat($('.T-weight .longValue').val())
+    console.log('ls'+l)
+    var dd=$('.T-long .depthValue').val();
+    var ww=$('.T-long .widthValue').val();
+    var ll=$('.T-long .longValue').val();
+    var b=$('.type-input').html();
+    console.log(d);
+    console.log(l);
+    console.log('wws'+ww)
+    console.log('dds'+dd)
+    console.log('lls'+ll)
+    if($('.weight').hasClass('active')){
+        if(b=='螺纹钢'){
+            lwW(d,l)
+        }
+        if(b=='六角钢'){
+            jgW(d,l)
+        }
+        if(b=='八角钢'){
+            jgW(d,l)
+        }
+        if(b=='中厚板'){
+            zhbW(d,w,l)
+        }
+        if(b=='扁钢'){
+            bgW(d,w,l)
+        }
+        if(b=='钢管'){
+            ggW(d,w,l)
+        }
+        if(b=='圆钢盘条'){
+            ygptW(d,l)
+        }
+    }else{
+        if(b=='螺纹钢'){
+            lwL(dd,ll)
+        }
+        if(b=='六角钢'){
+            jgL(dd,ll)
+        }
+        if(b=='八角钢'){
+            jgL(dd,ll)
+        }
+        if(b=='中厚板'){
+            zhbL(dd,ww,ll)
+        }
+        if(b=='扁钢'){
+            bgL(dd,ww,ll)
+        }
+        if(b=='钢管'){
+            ggL(dd,ww,ll)
+        }
+        if(b=='圆钢盘条'){
+            ygptL(dd,ll)
+        }
+    }
+
+
+
+
+})
+
+    window.onload=function () {
+        var type=$('.type-input').html();
+        console.log(type);
+        if(type=='中厚板'){
+            $('.td-width').css('display','flex')
+            $('.td-depth>.td-l').html('厚度');
+            $('.tdlwidth').html('宽度');
+            $('.T-weight .td-long>.td-l').html('长度')
+            $('.T-long .td-long>.td-l').html('重量')
+        }
+    }
+
+
+    $('#clean').click(function () {
+        $('.type-detail input').val('');
+        $('.tool-output>span').html('0');
+    });
+
+
+
+
+
+
+
+
+</script>
+</html>

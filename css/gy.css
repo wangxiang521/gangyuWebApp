@@ -1,0 +1,169 @@
+
+/*头部样式*/
+
+.mtop{
+    position: relative;
+    width:100%;
+    height:0.9rem;
+    text-align:center;
+    font-size:0.35rem;
+    background:#f69700;
+    line-height:0.9rem ;
+    color:#474747;
+    position:relative;
+    border-bottom:1px solid #e5e5e5;
+}
+.mtop:before{
+    content: '';
+    display: table;
+
+}
+.mtop a{
+    display:block;
+    width:0.7rem;
+    height:0.9rem;
+    position:absolute;
+    left:0; top:0;
+    background:url(../images/arrow2.png) center center no-repeat;
+    background-size:0.2rem 0.31rem;
+}
+.mtop .top-searchBox{
+    position: relative;
+    width: 4.1rem;
+    height: .59rem;
+    border-radius: .1rem;
+    margin:.15rem auto;
+    border: .01rem solid #f69700;
+    background: #fff;
+    line-height: .9rem;
+}
+.top-searchBox input{
+    position: absolute;
+    top: .1rem;
+    left:.26rem;
+    width: 3.6rem;
+    height:.40rem;
+    margin:0 auto;
+    font-size:.26rem;
+}
+.mtop .top-btn{
+    position: absolute;
+    top:0;
+    right: .4rem;
+    width: .7rem;
+    background: #f69700;
+    float: right;
+    color: #fff;
+    font-size: .30rem;
+    text-align: center;
+    height:.85rem;
+    border:none;
+}
+.top-btn:hover{
+    color: #000;
+}
+/*下拉列表样式*/
+.top-selector{
+    position: relative;
+    width: 100%;
+    height: .8rem;
+    border-bottom: 1px solid #c9c9c9;
+}
+.top-selector .selector{
+    margin:0 auto;
+    width: 95%;
+    line-height:.8rem;
+    text-align: center;
+
+
+}
+.top-selector .selector select{
+    border: .03rem solid #c9c9c9;
+    width: 16%;
+    /*height:.5rem;*/
+    font-size: .26rem;
+    color: #616161;
+    text-align: center;
+    padding:.05rem;
+    text-align: center;
+
+    /*下拉箭头样式*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: url("../images/arrow5.png") no-repeat 90% center ;
+    background-size: contain;
+    padding-right: .14rem;
+}
+
+/*详情样式*/
+.detail{
+    padding: .2rem;
+    width:100%;
+    font-size: .26rem;
+    border-bottom: .02rem solid #e7e7e7;
+}
+.detail .detail-productName{
+    font-weight: bolder;
+}
+.detail .detail-productSize{
+    color: #727272;
+}
+.detail .detail-productFactory{
+    color: #727272;
+
+}
+.detail .detail-productPrice{
+    color: #ff5a00;
+    float: right;
+    font-size: .28rem;
+}
+.detail .row1,.row2,.row3{
+    position: relative;
+    margin-top:.14rem;
+    width:95%;
+    height:.5rem;
+}
+
+.detail .row3 .detail-phone{
+    position: absolute;
+    background: url("../images/phone.png") no-repeat;
+    background-size: contain;
+    top: 0;
+    left:1.72rem;
+    width: .42rem;
+    height:.39rem;
+}
+.detail-Focus{
+    position: absolute;
+    top: 0;
+    left:3rem;
+
+    width: 1rem;
+    height:.33rem;
+}
+.detail-Focus .guanzhu{
+    float: right;
+}
+.detail-Focus .detail-heart{
+    position: absolute;
+    background: url("../images/heart.png") no-repeat;
+    background-size: contain;
+
+    width: .38rem;
+    height:.33rem;
+}
+.detail .row3 .detail-callme{
+    position: absolute;
+    right: 0;
+    top:0;
+    width:1.2rem;
+    height: .5rem;
+    background: url("../images/callme.png") no-repeat;
+}
+.findProduct img{
+    position: fixed;
+    bottom:5%;
+    right:5%;
+
+}

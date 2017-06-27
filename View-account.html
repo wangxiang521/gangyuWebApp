@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>我的订单</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/ckzh.css" />
+</head>
+<body>
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+    我的订单
+</div>
+
+<!--待付款-->
+<div class="detail">
+    <div class="row1">
+        <div class="left">
+            <span>商场订单:</span>
+            <span class="zhuangtai state red" >待付款 </span>
+            <span class="data">  2017-2-1</span>
+        </div>
+        <div class="right set-up">
+            上传凭证
+            <input type="file" accept="video/*;capture=camcorder">
+
+        </div>
+    </div>
+    <div class="row2">
+        <span>卖方：广东钢域电子商务股份有限公司</span>
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+    </div>
+    <div class="row4">
+        <div class="left search">
+            查看收款账户
+        </div>
+        <div class="right del">
+            取消订单
+        </div>
+    </div>
+</div>
+<!--已付款-->
+<div class="detail">
+    <div class="row1">
+        <div class="left">
+            <span>商场订单:</span>
+            <span class="zhuangtai state green" >已付款 </span>
+            <span class="data">  2017-2-1</span>
+        </div>
+        <div class="right check" id="check" >
+            <a href="">查看凭证</a>
+            <!--<input type="file" accept="video/*;capture=camcorder">-->
+
+        </div>
+    </div>
+    <div class="row2">
+        <span>卖方：广东钢域电子商务股份有限公司</span>
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+    </div>
+    <div class="row4">
+        <div class="left search">
+            查看收款账户
+        </div>
+        <div class="right add set-up ">
+            追加凭证
+            <input type="file" accept="video/*;capture=camcorder">
+        </div>
+    </div>
+</div>
+<!--交易成功-->
+<div class="detail">
+    <div class="row1">
+        <div class="left">
+            <span>商场订单:</span>
+            <span class="zhuangtai state orange" >交易成功 </span>
+            <span class="data">  2017-2-1</span>
+        </div>
+        <div class="right check" id="" >
+            <a href="">查看凭证</a>
+            <!--<input type="file" accept="video/*;capture=camcorder">-->
+
+        </div>
+    </div>
+    <div class="row2">
+        <span>卖方：广东钢域电子商务股份有限公司</span>
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+    </div>
+    <div class="row4">
+        <div class="left search">
+            查看收款账户
+        </div>
+        <div class="right del hidden">
+            取消订单
+        </div>
+    </div>
+</div>
+<!--已取消-->
+<div class="detail">
+    <div class="row1">
+        <div class="left">
+            <span>商场订单:</span>
+            <span class="zhuangtai state gray" >已取消</span>
+            <span class="data">  2017-2-1</span>
+        </div>
+        <div class="right set-up hidden ">
+            上传凭证
+            <input type="file" accept="video/*;capture=camcorder">
+
+        </div>
+    </div>
+    <div class="row2">
+        <span>卖方：广东钢域电子商务股份有限公司</span>
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+
+    </div>
+    <div class="row3">
+        <div>低合金板 14*2000*L Q345B 马钢</div>
+        <div>
+            <span>佛山 骏杰仓  </span>
+            <span>￥4800/吨</span>
+        </div>
+    </div>
+    <div class="row4 hidden">
+        <div class="left search">
+            查看收款账户
+        </div>
+        <div class="right del">
+            取消订单
+        </div>
+    </div>
+</div>
+
+<!--联系客服-->
+<div class="lxkf">
+    <a href="tel:10086"></a>
+</div>
+<div class="modal">
+    <div class="modal-content">
+        <div class="content">
+            <div class="blank-name">开户名称</div>
+            <div>广东钢域电子商务股份有限公司</div>
+        </div>
+        <div class="content">
+            <div class="blank-name">开户银行</div>
+            <div>广东顺德农村商业银行</div>
+            <div>佛山顺德陈村石洲分理处</div>
+        </div>
+        <div class="content">
+            <div class="blank-name">银行账户</div>
+            <div>521654654161654</div>
+        </div>
+        <div class="close">&times</div>
+    </div>
+</div>
+
+
+<div class="del-model">
+    <div class="content">
+        <!--<span class="close">&times;</span>-->
+        <h1>是否确认取消订单？</h1>
+        <div class="d-del">确定</div>
+        <div class="n-del">取消</div>
+    </div>
+</div>
+
+
+<div class="showphoto">
+    <div class="content">
+        <div class="close">&times;</div>
+
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $('.search').on('click',function(){
+        $('.modal').css('display','block')
+    })
+    $('.close').on('click',function(){
+        $('.modal').css('display','none')
+    })
+
+
+    //    删除确认
+
+
+
+
+    $('.del').on('click',function(){
+        $('.del-model').css('display','block');
+        var text=$(this);
+        $('.d-del').on('click',function(){
+            text.text('已取消');
+            $('.del-model').css('display','none');
+            text.unbind();
+        });
+
+    });
+    $('.n-del').on('click',function(){
+        $('.del-model').css('display','none')
+    })
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>钢铁管家</title>
+    <script>
+        !function(win) {
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth / v > 540){
+                    domWidth = 540 * v;
+                }
+                win.rem = domWidth / 16;
+                domEle.style.fontSize = win.rem + "px";
+            }
+            var v, initial_scale, timeCode, dom = win.document, domEle = dom.documentElement, viewport = dom.querySelector('meta[name="viewport"]'), flexible = dom.querySelector('meta[name="flexible"]');
+            if (viewport) {
+                //viewport：<meta name="viewport"content="initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5,user-scalable=no,minimal-ui"/>
+                var o = viewport.getAttribute("content").match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+                if(o){
+                    initial_scale = parseFloat(o[2]);
+                    v = parseInt(1 / initial_scale);
+                }
+            } else {
+                if (flexible) {
+                    var o = flexible.getAttribute("content").match(/initial\-dpr=(["']?)([\d\.]+)\1?/);
+                    if(o){
+                        v = parseFloat(o[2]);
+                        initial_scale = parseFloat((1 / v).toFixed(2))
+                    }
+                }
+            }
+            if (!v && !initial_scale) {
+                var n = (win.navigator.appVersion.match(/android/gi), win.navigator.appVersion.match(/iphone/gi));
+                v = win.devicePixelRatio;
+                v = n ? v >= 3 ? 3 : v >= 2 ? 2 : 1 : 1, initial_scale = 1 / v
+            }
+            //没有viewport标签的情况下
+            if (domEle.setAttribute("data-dpr", v), !viewport) {
+                if (viewport = dom.createElement("meta"), viewport.setAttribute("name", "viewport"), viewport.setAttribute("content", "initial-scale=" + initial_scale + ", maximum-scale=" + initial_scale + ", minimum-scale=" + initial_scale + ", user-scalable=no"), domEle.firstElementChild) {
+                    domEle.firstElementChild.appendChild(viewport)
+                } else {
+                    var m = dom.createElement("div");
+                    m.appendChild(viewport), dom.write(m.innerHTML)
+                }
+            }
+            win.dpr = v;
+            win.addEventListener("resize", function() {
+                clearTimeout(timeCode), timeCode = setTimeout(resize, 300)
+            }, false);
+            win.addEventListener("pageshow", function(b) {
+                b.persisted && (clearTimeout(timeCode), timeCode = setTimeout(resize, 300))
+            }, false);
+            /* 个人觉得没必要完成后就把body的字体设置为12
+             "complete" === dom.readyState ? dom.body.style.fontSize = 12 * v + "px" : dom.addEventListener("DOMContentLoaded", function() {
+             //dom.body.style.fontSize = 12 * v + "px"
+             }, false);
+             */
+            resize();
+        }(window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/gtgj.css" />
+</head>
+<body>
+<!--头部-->
+<div class="mtop">
+    <a href="#" onclick="history.go(-1)"></a>
+       钢铁管家
+</div>
+<div class="about">
+    <span>钢铁管家</span>致力于在快速变化的钢铁交易市场中，构建高效的服务体系，提供钢域网专属的一站式服务（采购、物流、仓储、加工、金融），为用户降低成本、提高效益。
+</div>
+<div class="xh com">
+    <img src="images/xhjy.png" alt="">
+    <p>一手货源  海量现货  下单即提</p>
+    <a href="superMarket.html">商城采购 &nbsp;<span></span></a>
+</div>
+<div class="ptfw com">
+    <img src="images/ptfw.png" alt="">
+    <p>仓储加工  物流配送</p>
+</div>
+<div class="dsj com">
+    <img src="images/dsj.png" alt="">
+    <p>行情预测  行业分析  采购指导</p>
+</div>
+<div class="jr com">
+    <img src="images/jrfw.png" alt="">
+    <p>终端授信  托盘订货  现货质押</p>
+    <a href="">了解更多 &nbsp;<span></span></a>
+</div>
+<div class="footNav">
+    <ul>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botgy.png"  class="footPic1"></div>
+                <div>关于钢域</div>
+            </a>
+        </li>
+        <li>
+            <a  href="tool.html">
+                <div class="navpic"><img src="images/botlj.png"  class="footPic2"></div>
+                <div>理算工具</div>
+            </a>
+        </li>
+        <li>
+            <a  href="#">
+                <div class="navpic"><img src="images/botdy.png" class="footPic2"></div>
+                <div>我的订单</div>
+            </a>
+        </li>
+        <li>
+            <a  href="shoppingcar.html">
+                <div class="num">0</div>
+                <div class="navpic"><img src="images/botgwc.png" class="footPic3"></div>
+                <div>购物车</div>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
